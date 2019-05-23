@@ -91,7 +91,7 @@ class Student
     sql = <<-SQL
     SELECT *
     FROM students
-    WHERE grade = input
+    WHERE grade = #{input}input
     SQL
 
     DB[:conn].execute(sql).map do |row|
