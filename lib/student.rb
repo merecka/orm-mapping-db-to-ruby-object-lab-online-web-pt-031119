@@ -68,10 +68,10 @@ class Student
     FROM students
     WHERE grade = #{num}
     SQL
-    
+
     DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
-    end    
+    end
 
     # DB[:conn].execute(sql)[0..(num-1)].map do |row|
     #   self.new_from_db(row)
