@@ -66,12 +66,16 @@ class Student
     sql = <<-SQL
     SELECT *
     FROM students
-    WHERE grade = 10
+    WHERE grade = #{num}
     SQL
-
-    DB[:conn].execute(sql)[0..(num-1)].map do |row|
+    
+    DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
-    end
+    end    
+
+    # DB[:conn].execute(sql)[0..(num-1)].map do |row|
+    #   self.new_from_db(row)
+    # end
   end
 
   def self.first_student_in_grade_10
